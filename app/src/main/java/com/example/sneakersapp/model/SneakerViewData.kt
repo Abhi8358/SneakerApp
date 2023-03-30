@@ -1,6 +1,6 @@
 package com.example.sneakersapp.model
 
 data class SneakerViewData(
-    val healthcheck: Healthcheck,
-    val sneakers: List<Sneaker>
+    val message: String,
+    val sneakers: List<Sneakers>
 )

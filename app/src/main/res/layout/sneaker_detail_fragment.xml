@@ -1,13 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <import type="android.view.View"/>
+        <variable
+            name="sneaker"
+            type="com.example.sneakersapp.model.Sneaker" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <include
+                android:id="@+id/detail_fragment_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                layout="@layout/toolbar"
+                bind:backButton="@{true}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="250dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_fragment_toolbar" />
+
+            <View
+                android:id="@+id/description_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/rounded_border_shape"
+                app:layout_constraintTop_toBottomOf="@+id/view_pager"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/horizontal_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="view_pager" />
+
+            <TextView
+                android:id="@+id/sneaker_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:minHeight="48dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@{sneaker.brandName}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontal_barrier" />
+
+            <TextView
+                android:id="@+id/slugs_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:minHeight="48dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@{sneaker.productSlugs}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sneaker_name" />
+
+            <LinearLayout
+                android:id="@+id/size_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:minHeight="48dp"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="26dp"
+                android:weightSum="5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/slugs_name">
+
+                <TextView
+                    android:id="@+id/size"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:paddingStart="28dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="28dp"
+                    android:text="@string/size"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/size_7"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:backgroundTintMode="add"
+                    android:backgroundTint="#AE6E5A"
+                    android:background="@drawable/ovel_view_for_red_color_button"
+                    android:text="@string/size_7"
+                    android:textColor="#DF4819"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/size_8"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#AE6E5A"
+                    android:backgroundTintMode="add"
+                    android:background="@drawable/ovel_view_for_red_color_button"
+                    android:text="@string/size_8"
+                    android:textColor="#DF4819"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/size_9"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="#AE6E5A"
+                    android:backgroundTintMode="add"
+                    android:background="@drawable/ovel_view_for_red_color_button"
+                    android:text="@string/size_9"
+                    android:textColor="#DF4819"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/color_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:minHeight="48dp"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="26dp"
+                android:weightSum="5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/size_view_container">
+
+                <TextView
+                    android:id="@+id/color"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:paddingStart="28dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="28dp"
+                    android:text="@string/color_text"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/pink_color"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/shrine_pink_100"
+                    android:contentDescription="@string/pink_color_button"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/blue_color"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/purple_700"
+                    android:contentDescription="@string/blue_color_button"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/sky_color"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/teal_200"
+                    android:contentDescription="@string/sky_color_button"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pirce_add_to_cart_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:minHeight="48dp"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="26dp"
+                android:weightSum="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/color_view_container">
+
+                <TextView
+                    android:id="@+id/price_text"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:padding="8dp"
+                    android:paddingStart="28dp"
+                    android:paddingEnd="28dp"
+                    android:text="@string/price"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/shoes_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="@{@string/currency(sneaker.price)}"
+                    android:textAlignment="center"
+                    android:textColor="#DF4819"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/add_to_cart"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:backgroundTint="#DF4819"
+                    android:text="@string/add_to_cart"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

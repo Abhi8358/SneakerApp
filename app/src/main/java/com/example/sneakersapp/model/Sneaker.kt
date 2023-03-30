@@ -1,35 +1,27 @@
 package com.example.sneakersapp.model
 
-data class Sneaker(
-    val box_condition: String,
-    val brand_name: String,
-    val category: List<String>,
-    val collection_slugs: List<String>,
-    val color: String,
-    val designer: String,
-    val details: String,
-    val gender: List<String>,
-    val grid_picture_url: String,
-    val has_picture: Boolean,
-    val has_stock: Boolean,
+class Sneaker(
+    val brandName: String?,
+    val productName: String?,
+    val productSlugs: String?,
     val id: Int,
-    val keywords: List<String>,
-    val main_picture_url: String,
-    val midsole: String,
-    val name: String,
-    val nickname: String,
-    val original_picture_url: String,
-    val product_template_id: Int,
-    val release_date: String,
-    val release_date_unix: Int,
-    val release_year: Int,
-    val retail_price_cents: Int,
-    val shoe_condition: String,
-    val silhouette: String,
-    val size_range: List<Double>,
-    val sku: String,
-    val slug: String,
-    val status: String,
-    val story_html: String,
-    val upper_material: String
-)
+    val price: Int,
+    val imagesUrlList: ArrayList<String>?
+) {
+    data class Builder(
+        var brandName: String? = null,
+        var productName: String? = null,
+        var productSlugs: String? = null,
+        var id: Int = 0,
+        var price: Int = 0,
+        var imagesUrlList: ArrayList<String>? = null) {
+
+        fun brandName(brandName: String) = apply { this.brandName = brandName }
+        fun productName(productName: String) = apply { this.productName = productName }
+        fun productSlugs(productSlugs: String) = apply { this.productSlugs = productSlugs }
+        fun id(id: Int) = apply { this.id = id }
+        fun price(price: Int) = apply { this.price = price }
+        fun imagesUrlList(imagesUrlList: ArrayList<String>) = apply { this.imagesUrlList = imagesUrlList }
+        fun build() = Sneaker(brandName, productName, productSlugs, id, price, imagesUrlList)
+    }
+}

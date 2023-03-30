@@ -1,13 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="totalPrices"
+            type="Integer" />
+        <variable
+            name="sub_price"
+            type="Integer" />
+        <variable
+            name="tex"
+            type="Integer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cart_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/cart_fragment_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            layout="@layout/toolbar"
+            bind:backButton="@{true}"
+            bind:toolbarText="@{true}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cart_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cart_fragment_toolbar"
+            app:layout_constraintBottom_toTopOf="@+id/cart_bill_container"/>
+
+        <LinearLayout
+            android:id="@+id/cart_bill_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/checkout_container">
+
+            <TextView
+                android:id="@+id/sub_totals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:paddingStart="42dp"
+                android:paddingEnd="42dp"
+                android:textSize="24sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="@string/order_details"/>
+
+            <TextView
+                android:id="@+id/sub_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:paddingStart="42dp"
+                android:paddingEnd="42dp"
+                android:textSize="18sp"
+                android:textColor="#423F3F"
+                android:textStyle="bold"
+                android:text="@{@string/sub_total(sub_price)}"/>
+
+            <TextView
+                android:id="@+id/text_charges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:paddingStart="42dp"
+                android:paddingEnd="42dp"
+                android:textSize="18sp"
+                android:textColor="#423F3F"
+                android:textStyle="bold"
+                android:text="@{@string/texts_and_charges(tex)}"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/checkout_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="16dp"
+            android:weightSum="2"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:text="@{@string/total(totalPrices)}"
+                android:textColor="#DF4819"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="80dp"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:backgroundTint="#DF4819"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/check_out"/>
+
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
