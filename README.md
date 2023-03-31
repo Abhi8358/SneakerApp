@@ -12,3 +12,18 @@
 [https://drive.google.com/file/d/145ZNpphq2AdfFXxfRaddc30ANkxIJtaH/view?usp=share_link](https://drive.google.com/file/d/145ZNpphq2AdfFXxfRaddc30ANkxIJtaH/view?usp=share_link)
 
 
+## About
+
+- Sneaker app that follows the MVVM architecture and utilizes the single activity pattern.
+- The app utilizes Hilt dependency injection and Navigation Graph to navigate between fragments.
+- Room Database is used to save items in the cart.
+- A common toolbar has also been implemented for all screens through the use of the include tag.
+
+
+## Features
+- Displays a grid (column size of 2) of available sneakers. The items contains the image, price and name of the sneaker.
+- The sneaker details page contains the selected sneakers title, name, image, brand and price.
+- “Add to Cart” button adds the sneaker to a checkout cart page.
+- The checkout page contains all the sneakers added in a list displaying their image and price.
+- The checkout page also shows the total price of all the sneakers in the end.
+- Items are removable from the cart.
