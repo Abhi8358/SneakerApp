@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.sneakersapp.R
 import com.example.sneakersapp.adapters.HomeAdapter
+import com.example.sneakersapp.data.LocalJsonParsing
 import com.example.sneakersapp.databinding.HomeFragmentBinding
 import com.example.sneakersapp.model.Sneakers
 import com.example.sneakersapp.ui.viewModels.HomeViewModel
@@ -45,6 +46,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.home_fragment, container, false)
+        val localJsonParsing = LocalJsonParsing(requireContext())
+        localJsonParsing.getListOfSneakers()
         return binding.root
     }
 
@@ -57,7 +60,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setRecyclerView() {
-        binding.homeFragmentMainContainer.apply {
+        binding.homeFragmentRecyclerView.apply {
             adapter = homeAdapter
             layoutManager = GridLayoutManager(activity, 2)
         }

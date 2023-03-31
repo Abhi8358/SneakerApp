@@ -4,6 +4,7 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -57,7 +58,7 @@
             app:constraint_referenced_ids="category, sort_by_drop_down"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_fragment_main_container"
+            android:id="@+id/home_fragment_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
