@@ -34,3 +34,9 @@
 - The checkout page contains all the sneakers added in a list displaying their image and price.
 - The checkout page also shows the total price of all the sneakers in the end.
 - Items are removable from the cart.
+
+## References
+ 
+- [Hilt dependency injection](https://developer.android.com/training/dependency-injection/hilt-android)
+- [Hilt dependency injection](https://www.youtube.com/watch?v=64hHvlR-d4k&list=PLRKyZvuMYSIOSigPsU9_tbO0uDyaZ8Ycf)
+- [Room DB with Hilt](https://svvashishtha.medium.com/using-room-with-hilt-cb57a1bc32f)
