@@ -3,16 +3,16 @@
 ## Videos and ScreenShots
 
 ### video links <br>
-|----|
-|[flow_screen_recording](https://drive.google.com/file/d/1ZpQBASaoGQE7H43Bsfer41AEdr2hu1sC/view?usp=share_link)|
-|[Detail_page_video](https://drive.google.com/file/d/1cJ6DjpEVfwL1mCZmz2_8WTp2ou0sH2Bg/view?usp=share_link)|
-|[Home_screen_searching](https://drive.google.com/file/d/1PjzXNTgs0USk8tAvDP6XV5qAYZKnB1np/view?usp=share_link)|
+
+[flow_screen_recording](https://drive.google.com/file/d/1ZpQBASaoGQE7H43Bsfer41AEdr2hu1sC/view?usp=share_link) <br>
+[Detail_page_video](https://drive.google.com/file/d/1cJ6DjpEVfwL1mCZmz2_8WTp2ou0sH2Bg/view?usp=share_link) <br>
+[Home_screen_searching](https://drive.google.com/file/d/1PjzXNTgs0USk8tAvDP6XV5qAYZKnB1np/view?usp=share_link) <br>
 
 ### ScreenShots <br>
-|------|
-|[cart_screen](https://drive.google.com/file/d/1ktTLihOT2gf0xvarO0obDPez9PYA_BXj/view?usp=share_link)|
-|[detail_screen](https://drive.google.com/file/d/1YFKA_z5ZlHnR4PzGYUp0M7rFq6hemfcP/view?usp=share_link)|
-|[home_screen](https://drive.google.com/file/d/145ZNpphq2AdfFXxfRaddc30ANkxIJtaH/view?usp=share_link)|
+
+[cart_screen](https://drive.google.com/file/d/1ktTLihOT2gf0xvarO0obDPez9PYA_BXj/view?usp=share_link) <br>
+[detail_screen](https://drive.google.com/file/d/1YFKA_z5ZlHnR4PzGYUp0M7rFq6hemfcP/view?usp=share_link) <br>
+[home_screen](https://drive.google.com/file/d/145ZNpphq2AdfFXxfRaddc30ANkxIJtaH/view?usp=share_link) <br>
 
 ### All ScreenShots and Videos <br>
 [All](https://drive.google.com/drive/folders/15f7a_DybQyYElQbOxKjq6SLeyshVKNos?usp=share_link)
