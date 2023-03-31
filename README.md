@@ -22,6 +22,7 @@
 
 ## Features
 - Displays a grid (column size of 2) of available sneakers. The items contains the image, price and name of the sneaker.
+- Home screen contains Searching functionality by brand name.
 - The sneaker details page contains the selected sneakers title, name, image, brand and price.
 - “Add to Cart” button adds the sneaker to a checkout cart page.
 - The checkout page contains all the sneakers added in a list displaying their image and price.
