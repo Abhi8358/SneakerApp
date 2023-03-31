@@ -22,10 +22,18 @@ class HomeViewModel @Inject constructor(
     init {
         getSneakers()
     }
-    private fun getSneakers() {
+    fun getSneakers() {
         viewModelScope.launch {
             _sneakerLiveData.postValue(Resource.Loading())
             val response = repository.getTopSneakers()
+            _sneakerLiveData.postValue(handleNewsResponse(response))
+        }
+    }
+
+    fun getSearchedItemsList(input: String) {
+        viewModelScope.launch {
+            _sneakerLiveData.postValue(Resource.Loading())
+            val response = repository.getSearchedItem(input)
             _sneakerLiveData.postValue(handleNewsResponse(response))
         }
     }

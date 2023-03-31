@@ -69,4 +69,24 @@ public class LocalJsonParsing {
             Log.e(TAG, "Load Json Error " + e);
         }
     }
+
+    @NonNull
+    public static List<Sneakers> getListOfSearchedString(String input) {
+        List<Sneakers> searchedSneakers = new ArrayList<>();
+
+        for (int i = 0; i < listOfSneakers.size(); i++) {
+            Sneakers sneakers = listOfSneakers.get(i);
+
+            String brandName = sneakers.getBrandName();
+            if (isSubstring(brandName, input) || isSubstring(input, brandName)) {
+                searchedSneakers.add(sneakers);
+            }
+        }
+        return searchedSneakers;
+    }
+
+    private static boolean isSubstring(String s1, String s2) {
+
+        return s2.contains(s1);
+    }
 }

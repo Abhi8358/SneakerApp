@@ -25,6 +25,9 @@ import com.example.sneakersapp.utils.Constants.Companion.PRICE_OF_SNEAKER
 import com.example.sneakersapp.utils.Constants.Companion.PRODUCT_SLUGS
 import com.example.sneakersapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 private const val TAG = "HomeFragment"
@@ -48,6 +51,19 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setRecyclerView()
+        setNavigationCLickListener()
+        sneakerLiveDataObserver()
+        searching()
+    }
+
+    private fun setRecyclerView() {
+        binding.homeFragmentMainContainer.apply {
+            adapter = homeAdapter
+            layoutManager = GridLayoutManager(activity, 2)
+        }
+    }
+
+    private fun sneakerLiveDataObserver() {
         homeViewModel.sneakerLiveData.observe(viewLifecycleOwner, Observer { resource ->
 
             when (resource) {
@@ -65,17 +81,7 @@ class HomeFragment : Fragment() {
                 }
             }
         })
-        setNavigationCLickListener()
     }
-
-    private fun setRecyclerView() {
-        
-        binding.homeFragmentMainContainer.apply {
-            adapter = homeAdapter
-            layoutManager = GridLayoutManager(activity, 2)
-        }
-    }
-
     private fun hideProgressBar() {
         binding.paginationProgressBar.visibility = View.INVISIBLE
     }
@@ -102,9 +108,20 @@ class HomeFragment : Fragment() {
         })
     }
 
+    /**
+     * Searching based on Brand Name
+     */
     fun searching() {
-        binding.homeFragmentToolbar.searchBox.addTextChangedListener {
+        binding.homeFragmentToolbar.searchBox.addTextChangedListener { editText ->
 
+            MainScope().launch {
+                delay(1000L)
+                if (editText.toString().isNotEmpty()) {
+                    homeViewModel.getSearchedItemsList(editText.toString())
+                } else {
+                    homeViewModel.getSneakers()
+                }
+            }
         }
     }
 }

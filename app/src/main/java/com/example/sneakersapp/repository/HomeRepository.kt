@@ -8,7 +8,15 @@ import javax.inject.Inject
 class HomeRepository @Inject constructor() {
 
     fun getTopSneakers(): SneakerViewData {
-        Log.d("Abhishek","List Size = " + LocalJsonParsing.listOfSneakers.size)
         return SneakerViewData("ok", LocalJsonParsing.listOfSneakers)
+    }
+
+    fun getSearchedItem(input: String) : SneakerViewData {
+        val searchedList = LocalJsonParsing.getListOfSearchedString(input)
+
+        if (searchedList.isEmpty()) {
+            return SneakerViewData("empty", searchedList)
+        }
+        return SneakerViewData("ok", searchedList)
     }
 }
