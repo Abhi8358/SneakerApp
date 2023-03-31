@@ -15,9 +15,6 @@ import com.example.sneakersapp.adapters.ImageSliderAdapter
 import com.example.sneakersapp.dao.SneakerTable
 import com.example.sneakersapp.databinding.SneakerDetailFragmentBinding
 import com.example.sneakersapp.model.Sneaker
-import com.example.sneakersapp.model.SneakerViewData
-import com.example.sneakersapp.model.Sneakers
-import com.example.sneakersapp.ui.viewModels.HomeViewModel
 import com.example.sneakersapp.ui.viewModels.SneakerDetailViewModel
 import com.example.sneakersapp.utils.Constants.Companion.ID
 import com.example.sneakersapp.utils.Constants.Companion.IMAGE_URLS

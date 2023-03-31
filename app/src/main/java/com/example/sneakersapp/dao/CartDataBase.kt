@@ -9,21 +9,4 @@ import androidx.room.RoomDatabase
 )
 abstract class CartDataBase : RoomDatabase() {
     abstract fun getCartDao(): CartDataAccessObject
-//    companion object {
-//
-//        @Volatile
-//        private var instant: CartDataBase? = null
-//        private val LOCK = Any()
-//
-//        operator fun invoke(context: Context) = instant?: synchronized(LOCK) {
-//            instant ?: createDatabase(context).also { instant = it }
-//        }
-//
-//        private fun createDatabase(context: Context) =
-//            Room.databaseBuilder(
-//                context.applicationContext,
-//                CartDataBase::class.java,
-//                "article_db_db"
-//            ).build()
-//    }
 }

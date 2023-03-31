@@ -1,15 +1,11 @@
 package com.example.sneakersapp.ui.viewModels
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sneakersapp.dao.SneakerTable
-import com.example.sneakersapp.model.SneakerViewData
 import com.example.sneakersapp.repository.CartRepository
-import com.example.sneakersapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -15,13 +15,11 @@ class ImageSliderAdapter(private val imageUrlList: ArrayList<String>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun setData(imageUrl: String) {
-
             Glide.with(binding.root.context)
                 .load(imageUrl)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(binding.sliderImage)
         }
-
     }
 
     override fun getItemCount(): Int = imageUrlList.size
@@ -33,7 +31,6 @@ class ImageSliderAdapter(private val imageUrlList: ArrayList<String>) :
             parent,
             false
         )
-
         return ViewPagerViewHolder(binding)
     }
 

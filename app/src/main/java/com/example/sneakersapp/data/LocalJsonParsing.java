@@ -41,7 +41,7 @@ public class LocalJsonParsing {
             json = new String(buffer, StandardCharsets.UTF_8);
             JSONArray jsonArray = new JSONArray(json);
             max = jsonArray.length();
-            Log.d("total item =","total item = " + max);
+
             // get json data and put into SneakersViewData
             for (int i = 0; i < max; i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -63,7 +63,6 @@ public class LocalJsonParsing {
                 Sneakers sneakers =
                         new Sneakers(brandName, productName, productSlugs, id, price, imagesUrlList, gridPictureUrl);
                 listOfSneakers.add(sneakers);
-                Log.d("Rawat", sneakers.getBrandName() + "  " + listOfSneakers.size());
             }
 
         } catch (Exception e) {

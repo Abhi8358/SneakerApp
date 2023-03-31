@@ -13,15 +13,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sneakersapp.R
 import com.example.sneakersapp.adapters.CartAdapter
-import com.example.sneakersapp.adapters.HomeAdapter
 import com.example.sneakersapp.dao.SneakerTable
 import com.example.sneakersapp.databinding.CartFragmentBinding
-import com.example.sneakersapp.databinding.HomeFragmentBinding
-import com.example.sneakersapp.model.Sneakers
 import com.example.sneakersapp.ui.viewModels.CartViewModel
-import com.example.sneakersapp.ui.viewModels.HomeViewModel
-import com.example.sneakersapp.utils.Constants
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

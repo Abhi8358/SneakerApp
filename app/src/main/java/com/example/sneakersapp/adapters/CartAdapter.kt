@@ -69,6 +69,5 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.SneakerAdapterViewHolder>()
 
     interface OnClickListener {
         fun onClick(sneaker: SneakerTable)
-
     }
 }

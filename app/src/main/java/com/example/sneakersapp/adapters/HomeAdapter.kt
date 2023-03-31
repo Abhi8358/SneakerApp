@@ -69,6 +69,5 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.SneakerAdapterViewHolder>()
 
     interface OnClickListener {
         fun onClick(sneaker: Sneakers)
-
     }
 }

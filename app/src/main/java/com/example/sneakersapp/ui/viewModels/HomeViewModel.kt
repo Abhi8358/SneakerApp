@@ -8,7 +8,6 @@ import com.example.sneakersapp.model.SneakerViewData
 import com.example.sneakersapp.repository.HomeRepository
 import com.example.sneakersapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -17,7 +17,7 @@ import com.google.android.material.navigation.NavigationBarView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
+class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
@@ -31,16 +31,5 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
 
         val localJsonParsing = LocalJsonParsing(this)
         localJsonParsing.getListOfSneakers()
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.homeFragment -> {
-
-            }
-            R.id.cartFragment -> {
-            }
-        }
-        return true
     }
 }
