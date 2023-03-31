@@ -16,7 +16,7 @@ class CartViewModel @Inject constructor(val cartRepository: CartRepository) : Vi
         cartRepository.removeItemFromCart(sneakerTable)
     }
 
-    fun getSavedArticles(): LiveData<List<SneakerTable>> {
+    fun getSavedItems(): LiveData<List<SneakerTable>> {
         return cartRepository.getAllItem()
     }
 
@@ -30,7 +30,7 @@ class CartViewModel @Inject constructor(val cartRepository: CartRepository) : Vi
         }
     }
 
-    fun calTexesAndCharges(price: Int): Int {
+    fun calTaxesAndCharges(price: Int): Int {
         return price * 10 / 100
     }
 

@@ -78,7 +78,7 @@ public class LocalJsonParsing {
             Sneakers sneakers = listOfSneakers.get(i);
 
             String brandName = sneakers.getBrandName();
-            if (isSubstring(brandName, input) || isSubstring(input, brandName)) {
+            if (isSubstring(brandName.toLowerCase(), input.toLowerCase()) || isSubstring(input.toLowerCase(), brandName.toLowerCase())) {
                 searchedSneakers.add(sneakers);
             }
         }

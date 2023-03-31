@@ -24,6 +24,8 @@
 - The app utilizes Hilt dependency injection and Navigation Graph to navigate between fragments.
 - Room Database is used to save items in the cart.
 - A common toolbar has also been implemented for all screens through the use of the include tag.
+- Used Glide library for Image Loading.
+- Used ViewPager2 for Carousel implementation.
 
 
 ## Features

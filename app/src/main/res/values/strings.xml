@@ -32,7 +32,7 @@
     // Formatted string
     <string name="currency">$ %s</string>
     <string name="sub_total">Sub Total: $%s</string>
-    <string name="texts_and_charges">Texes and Charges: $%s</string>
+    <string name="texts_and_charges">Taxes and Charges: $%s</string>
     <string name="total">Total: $%s</string>
     <string name="selected_size">Size: %s</string>
 

@@ -11,7 +11,7 @@
             name="sub_price"
             type="Integer" />
         <variable
-            name="tex"
+            name="tax"
             type="Integer" />
     </data>
 
@@ -84,7 +84,7 @@
                 android:textSize="18sp"
                 android:textColor="#423F3F"
                 android:textStyle="bold"
-                android:text="@{@string/texts_and_charges(tex)}"/>
+                android:text="@{@string/texts_and_charges(tax)}"/>
 
         </LinearLayout>
 
