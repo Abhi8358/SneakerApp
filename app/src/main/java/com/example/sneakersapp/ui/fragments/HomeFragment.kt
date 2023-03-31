@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -24,6 +25,7 @@ import com.example.sneakersapp.utils.Constants.Companion.PRICE_OF_SNEAKER
 import com.example.sneakersapp.utils.Constants.Companion.PRODUCT_SLUGS
 import com.example.sneakersapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 private const val TAG = "HomeFragment"
 
@@ -31,7 +33,8 @@ private const val TAG = "HomeFragment"
 class HomeFragment : Fragment() {
 
     lateinit var binding: HomeFragmentBinding
-    private lateinit var homeAdapter: HomeAdapter
+    @Inject
+    lateinit var homeAdapter: HomeAdapter
     private val homeViewModel by viewModels<HomeViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,7 +69,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setRecyclerView() {
-        homeAdapter = HomeAdapter()
+        
         binding.homeFragmentMainContainer.apply {
             adapter = homeAdapter
             layoutManager = GridLayoutManager(activity, 2)
@@ -97,5 +100,11 @@ class HomeFragment : Fragment() {
                 )
             }
         })
+    }
+
+    fun searching() {
+        binding.homeFragmentToolbar.searchBox.addTextChangedListener {
+
+        }
     }
 }

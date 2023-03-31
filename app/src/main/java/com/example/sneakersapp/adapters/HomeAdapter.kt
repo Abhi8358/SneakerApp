@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sneakersapp.databinding.HomeAdapterBinding
 import com.example.sneakersapp.model.Sneakers
+import javax.inject.Inject
 
-class HomeAdapter : RecyclerView.Adapter<HomeAdapter.SneakerAdapterViewHolder>() {
+class HomeAdapter @Inject constructor() : RecyclerView.Adapter<HomeAdapter.SneakerAdapterViewHolder>() {
 
     private var onClickListener: OnClickListener? = null
     class SneakerAdapterViewHolder (homeAdapterBinding: HomeAdapterBinding) : RecyclerView.ViewHolder(homeAdapterBinding.root) {

@@ -17,12 +17,14 @@ import com.example.sneakersapp.dao.SneakerTable
 import com.example.sneakersapp.databinding.CartFragmentBinding
 import com.example.sneakersapp.ui.viewModels.CartViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CartFragment : Fragment() {
 
     lateinit var binding: CartFragmentBinding
-    private lateinit var cartAdapter: CartAdapter
+    @Inject
+    lateinit var cartAdapter: CartAdapter
     val cartViewModel by viewModels<CartViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,7 +61,6 @@ class CartFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        cartAdapter = CartAdapter()
         binding.cartRecyclerView.apply {
             adapter = cartAdapter
             layoutManager = LinearLayoutManager(requireContext())

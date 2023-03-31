@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sneakersapp.dao.SneakerTable
 import com.example.sneakersapp.databinding.CartAdapterBinding
+import javax.inject.Inject
 
-class CartAdapter : RecyclerView.Adapter<CartAdapter.SneakerAdapterViewHolder>() {
+class CartAdapter @Inject constructor() : RecyclerView.Adapter<CartAdapter.SneakerAdapterViewHolder>() {
 
     private var onClickListener: OnClickListener? = null
     class SneakerAdapterViewHolder (cartAdapterBinding: CartAdapterBinding) : RecyclerView.ViewHolder(cartAdapterBinding.root) {
