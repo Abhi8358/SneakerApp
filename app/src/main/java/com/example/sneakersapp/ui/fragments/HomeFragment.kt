@@ -10,11 +10,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.sneakersapp.R
 import com.example.sneakersapp.adapters.HomeAdapter
-import com.example.sneakersapp.data.LocalJsonParsing
 import com.example.sneakersapp.databinding.HomeFragmentBinding
 import com.example.sneakersapp.model.Sneakers
 import com.example.sneakersapp.ui.viewModels.HomeViewModel
@@ -46,8 +46,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.home_fragment, container, false)
-        val localJsonParsing = LocalJsonParsing(requireContext())
-        localJsonParsing.getListOfSneakers()
         return binding.root
     }
 
@@ -117,7 +115,7 @@ class HomeFragment : Fragment() {
     fun searching() {
         binding.homeFragmentToolbar.searchBox.addTextChangedListener { editText ->
 
-            MainScope().launch {
+            viewLifecycleOwner.lifecycleScope.launch {
                 delay(1000L)
                 if (editText.toString().isNotEmpty()) {
                     homeViewModel.getSearchedItemsList(editText.toString())

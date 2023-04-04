@@ -76,6 +76,8 @@
             android:minHeight="48dp"
             android:hint="@string/search_brand"
             android:layout_marginStart="16dp"
+            android:maxLines="1"
+            android:inputType="text"
             android:layout_marginEnd="16dp"
             android:visibility="@{searchBox ? View.VISIBLE : View.GONE}"
             android:textColor="#DF4819"

@@ -19,14 +19,9 @@ public class LocalJsonParsing {
 
     private static final String TAG = LocalJsonParsing.class.getName();
     public static List<Sneakers> listOfSneakers = new ArrayList<>();
-    private static Context context = null;
-
-    public LocalJsonParsing(Context context) {
-        this.context = context;
-    }
 
     @NonNull
-    public void getListOfSneakers() {
+    public static List<Sneakers> getListOfSneakers(Context context) {
 
         try {
             InputStream inputStream = context.getAssets().open("sneakers_json_data.json");
@@ -68,6 +63,7 @@ public class LocalJsonParsing {
         } catch (Exception e) {
             Log.e(TAG, "Load Json Error " + e);
         }
+        return listOfSneakers;
     }
 
     @NonNull

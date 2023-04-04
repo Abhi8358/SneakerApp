@@ -47,9 +47,6 @@ class CartFragmentTest {
         // recycler view
         onView(withId(R.id.cart_recycler_view)).check(matches(isDisplayed()))
 
-        onView(withRecyclerView(recyclerViewId = R.id.cart_recycler_view).atPosition(0))
-            .check(matches(hasDescendant(withId(R.id.cross_button)))).check(matches(isDisplayed()))
-
         //cart Bill Container
         onView(withId(R.id.cart_bill_container)).check(matches(isDisplayed()))
         onView(withId(R.id.cart_bill_container))

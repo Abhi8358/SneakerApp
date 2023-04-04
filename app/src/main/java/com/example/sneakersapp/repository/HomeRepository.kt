@@ -1,14 +1,15 @@
 package com.example.sneakersapp.repository
 
-import android.util.Log
+import android.content.Context
 import com.example.sneakersapp.data.LocalJsonParsing
 import com.example.sneakersapp.model.SneakerViewData
 import javax.inject.Inject
 
-class HomeRepository @Inject constructor() : HomeRepositoryInterface{
+class HomeRepository @Inject constructor(val context: Context) : HomeRepositoryInterface{
 
     override fun getTopSneakers(): SneakerViewData {
-        return SneakerViewData("ok", LocalJsonParsing.listOfSneakers)
+        //return SneakerViewData("ok", LocalJsonParsing.listOfSneakers)
+        return SneakerViewData("ok", LocalJsonParsing.getListOfSneakers(context))
     }
 
     override fun getSearchedItem(input: String) : SneakerViewData {
