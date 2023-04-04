@@ -35,5 +35,8 @@
     <string name="texts_and_charges">Taxes and Charges: $%s</string>
     <string name="total">Total: $%s</string>
     <string name="selected_size">Size: %s</string>
+    <string name="oops_your_cart_is_empty">Oops! Your cart is Empty!</string>
+    <string name="redirect_to_home">Redirect to Home</string>
+    <string name="empty_item_image">Empty Item Image</string>
 
 </resources>

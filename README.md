@@ -26,6 +26,7 @@
 - A common toolbar has also been implemented for all screens through the use of the include tag.
 - Used Glide library for Image Loading.
 - Used ViewPager2 for Carousel implementation.
+- Used Espresso and Mockito framework for testing
 
 
 ## Features
@@ -36,6 +37,8 @@
 - The checkout page contains all the sneakers added in a list displaying their image and price.
 - The checkout page also shows the total price of all the sneakers in the end.
 - Items are removable from the cart.
+- Added UI tests for Fragments.
+- Added Test for Room and viewModel.
 
 ## References
  

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/empty_screen_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white">
+
+        <ImageView
+            android:id="@+id/empty_cart_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/empty_cart_image_"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/empty_item_image" />
+
+        <TextView
+            android:id="@+id/empty_cart_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/empty_cart_image"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="16dp"
+            android:text="@string/oops_your_cart_is_empty"
+            android:textColor="#FF5722"
+            android:textStyle="bold"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/redirect_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/empty_cart_text"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="16dp"
+            android:maxLines="1"
+            android:backgroundTint="@color/white"
+            android:textStyle="bold"
+            android:textColor="#FF5722"
+            android:text="@string/redirect_to_home"
+            android:textSize="21sp" />
+
+    </RelativeLayout>
+
+</layout>

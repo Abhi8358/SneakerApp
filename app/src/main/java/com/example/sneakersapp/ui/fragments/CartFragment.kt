@@ -53,16 +53,9 @@ class CartFragment : Fragment() {
     private fun pressOnCheckoutButtonAndThenNavigateToHome() {
 
         binding.checkout.setOnClickListener {
-            if (cartAdapter.differ.currentList.isNotEmpty()) {
-                Toast.makeText(requireContext(), "Your Order Placed Successfully", Toast.LENGTH_SHORT).show()
-                cartViewModel.deleteAllItemsFromCart()
-            } else {
-                Toast.makeText(
-                    requireContext(),
-                    "You have no item to buy redirecting to home screen",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            Toast.makeText(requireContext(), "Your Order Placed Successfully", Toast.LENGTH_SHORT)
+                .show()
+            cartViewModel.deleteAllItemsFromCart()
             findNavController().navigate(R.id.action_cartFragment_to_homeFragment)
         }
     }
@@ -76,6 +69,9 @@ class CartFragment : Fragment() {
     private fun setCartAdapter() {
         cartViewModel.getSavedItems().observe(viewLifecycleOwner) {
             cartAdapter.differ.submitList(it)
+            if (it.isEmpty()) {
+                manageEmptyScreen()
+            }
         }
     }
 
@@ -100,5 +96,15 @@ class CartFragment : Fragment() {
         binding.subPrice = subTotal
         binding.tax = taxAndCharges
         binding.totalPrices = totalPrice
+    }
+
+    fun manageEmptyScreen() {
+
+        binding.cartContainer.visibility = View.GONE
+        binding.emptyItemContainer.visibility = View.VISIBLE
+
+        binding.emptyCartContainer.redirectButton.setOnClickListener {
+            findNavController().navigate(R.id.action_cartFragment_to_homeFragment)
+        }
     }
 }
