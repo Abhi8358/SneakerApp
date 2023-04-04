@@ -5,13 +5,13 @@ import com.example.sneakersapp.data.LocalJsonParsing
 import com.example.sneakersapp.model.SneakerViewData
 import javax.inject.Inject
 
-class HomeRepository @Inject constructor() {
+class HomeRepository @Inject constructor() : HomeRepositoryInterface{
 
-    fun getTopSneakers(): SneakerViewData {
+    override fun getTopSneakers(): SneakerViewData {
         return SneakerViewData("ok", LocalJsonParsing.listOfSneakers)
     }
 
-    fun getSearchedItem(input: String) : SneakerViewData {
+    override fun getSearchedItem(input: String) : SneakerViewData {
         val searchedList = LocalJsonParsing.getListOfSearchedString(input)
 
         if (searchedList.isEmpty()) {

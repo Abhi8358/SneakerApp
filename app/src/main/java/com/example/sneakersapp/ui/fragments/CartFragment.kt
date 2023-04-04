@@ -1,6 +1,7 @@
 package com.example.sneakersapp.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ class CartFragment : Fragment() {
     @Inject
     lateinit var cartAdapter: CartAdapter
     val cartViewModel by viewModels<CartViewModel>()
+    var isEmptyCart = false
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,9 +55,13 @@ class CartFragment : Fragment() {
     private fun pressOnCheckoutButtonAndThenNavigateToHome() {
 
         binding.checkout.setOnClickListener {
-            Toast.makeText(requireContext(), "Your Order Placed Successfully", Toast.LENGTH_SHORT).show()
-            cartViewModel.deleteAllItemsFromCart()
+            if (!isEmptyCart) {
+                Toast.makeText(requireContext(), "Your Order Placed Successfully", Toast.LENGTH_SHORT).show()
+                cartViewModel.deleteAllItemsFromCart()
+            }
+            Log.d("AAAAAAAA", "Before navigate to home fragment")
             findNavController().navigate(R.id.action_cartFragment_to_homeFragment)
+            Log.d("AAAAAAAA", "Cart Fragment to Home Fragment")
         }
     }
 
@@ -68,6 +74,7 @@ class CartFragment : Fragment() {
     private fun setCartAdapter() {
         cartViewModel.getSavedItems().observe(viewLifecycleOwner) {
             cartAdapter.differ.submitList(it)
+            isEmptyCart = cartAdapter.differ.currentList.isEmpty()
         }
     }
 

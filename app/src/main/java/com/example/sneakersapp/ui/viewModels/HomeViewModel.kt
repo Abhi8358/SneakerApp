@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sneakersapp.model.SneakerViewData
 import com.example.sneakersapp.repository.HomeRepository
+import com.example.sneakersapp.repository.HomeRepositoryInterface
 import com.example.sneakersapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -13,11 +14,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val repository: HomeRepository
+    private val repository: HomeRepositoryInterface
 ) : ViewModel() {
 
     private val _sneakerLiveData: MutableLiveData<Resource<SneakerViewData>> = MutableLiveData()
-    val sneakerLiveData: LiveData<Resource<SneakerViewData>> = _sneakerLiveData
+    //val sneakerLiveData: LiveData<Resource<SneakerViewData>> = _sneakerLiveData
+    val sneakerLiveData: LiveData<Resource<SneakerViewData>>
+        get() = _sneakerLiveData
 
     init {
         getSneakers()

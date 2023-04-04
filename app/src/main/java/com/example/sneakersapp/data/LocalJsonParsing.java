@@ -85,7 +85,7 @@ public class LocalJsonParsing {
         return searchedSneakers;
     }
 
-    private static boolean isSubstring(String s1, String s2) {
+    private static boolean isSubstring(String s1, @NonNull String s2) {
 
         return s2.contains(s1);
     }

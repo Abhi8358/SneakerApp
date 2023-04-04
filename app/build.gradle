@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.example.sneakersapp.HiltTestRunner"
     }
 
     buildTypes {
@@ -39,6 +39,8 @@ android {
 
 dependencies {
 
+    implementation 'com.google.ar:core:1.36.0'
+    testImplementation 'junit:junit:4.12'
     def room_version = "2.5.1"
 
     implementation 'androidx.core:core-ktx:1.9.0'
@@ -119,6 +121,30 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0"
     implementation "androidx.fragment:fragment-ktx:1.5.6"
 
+    // navigation testing
+    implementation 'androidx.navigation:navigation-testing:2.5.3'
+
+    // hilt testing
+
+    // For Robolectric tests.
+    testImplementation 'com.google.dagger:hilt-android-testing:2.44'
+    // ...with Kotlin.
+    kaptTest 'com.google.dagger:hilt-android-compiler:2.44'
+    // ...with Java.
+    testAnnotationProcessor 'com.google.dagger:hilt-android-compiler:2.44'
+
+
+    // For Hilt instrumented tests.
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.44'
+    // ...with Kotlin.
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.44'
+    // ...with Java.
+    androidTestAnnotationProcessor 'com.google.dagger:hilt-android-compiler:2.44'
+
+    // navigation testing
+    androidTestImplementation "androidx.navigation:navigation-testing:2.5.3"
+
+    implementation 'androidx.compose.ui:ui-tooling-preview:1.4.0'
 }
 
 // Allow references to generated code
