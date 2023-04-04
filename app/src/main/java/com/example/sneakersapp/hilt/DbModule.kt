@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.example.sneakersapp.dao.CartDataBase
 import com.example.sneakersapp.dao.SneakerTable
+import com.example.sneakersapp.repository.HomeRepository
+import com.example.sneakersapp.repository.HomeRepositoryInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,4 +28,8 @@ object DbModule {
     @Provides
     @Singleton
     fun provideDao(db: CartDataBase) = db.getCartDao()
+
+    @Provides
+    @Singleton
+    fun objectForHomeRepositoryInterface() = HomeRepository() as HomeRepositoryInterface
 }

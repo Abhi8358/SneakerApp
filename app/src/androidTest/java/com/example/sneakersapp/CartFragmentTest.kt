@@ -1,23 +1,34 @@
 package com.example.sneakersapp
 
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.PositionAssertions.isCompletelyAbove
 import androidx.test.espresso.assertion.PositionAssertions.isCompletelyBelow
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.sneakersapp.hilt.launchFragmentInHiltContainer
 import com.example.sneakersapp.ui.fragments.CartFragment
-import android.widget.AdapterView
-import org.junit.Assert.*
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
+import org.mockito.Mockito
 
-@RunWith(AndroidJUnit4::class)
+@HiltAndroidTest
 class CartFragmentTest {
+
+    @get:Rule
+    val hiltRule = HiltAndroidRule(this)
+
+    private val navController = Mockito.mock(NavController::class.java)
+
+    @Before
+    fun setUp(){
+        hiltRule.inject()
+    }
 
     @Test
     fun verifyCartFragment() {
@@ -53,7 +64,10 @@ class CartFragmentTest {
     @Test
     fun verifyAndTestCheckoutContainer() {
 
-        launchFragmentInHiltContainer<CartFragment>( null, R.style.Theme_SneakersApp)
+        launchFragmentInHiltContainer<CartFragment>( null, R.style.Theme_SneakersApp) {
+            navController.setGraph(R.navigation.sneaker_navigation_graph)
+            Navigation.setViewNavController(requireView(), navController)
+        }
 
         onView(withId(R.id.checkout_container)).check(matches(isDisplayed()))
         onView(withId(R.id.checkout_container))

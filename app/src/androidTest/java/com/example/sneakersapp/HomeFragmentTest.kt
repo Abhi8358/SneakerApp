@@ -1,5 +1,7 @@
 package com.example.sneakersapp
 
+import androidx.navigation.Navigation
+import androidx.navigation.testing.TestNavHostController
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.PositionAssertions.isCompletelyAbove
@@ -12,9 +14,26 @@ import androidx.test.espresso.assertion.LayoutAssertions.noEllipsizedText
 import androidx.test.espresso.assertion.LayoutAssertions.noOverlaps
 import com.example.sneakersapp.mock.SneakerDetailMock.TYPE_WORD
 import com.example.sneakersapp.ui.fragments.HomeFragment
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import junit.framework.TestCase
+import junit.framework.TestCase.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
+@HiltAndroidTest
 class HomeFragmentTest {
+
+
+    @get:Rule
+    val hiltRule = HiltAndroidRule(this)
+
+    @Before
+    fun setUp(){
+        hiltRule.inject()
+    }
 
     @Test
     fun verifySneakerDetailScreen() {
@@ -47,7 +66,18 @@ class HomeFragmentTest {
 
     @Test
     fun verifyRecyclerViewActions() {
-        launchFragmentInHiltContainer<HomeFragment>( null, R.style.Theme_App)
+        launchFragmentInHiltContainer<HomeFragment>( null, R.style.Theme_App) {
+            TestCase.assertNotNull(requireActivity())
+            val navController = TestNavHostController(requireActivity())
+
+            requireActivity().runOnUiThread { navController.setGraph(R.navigation.sneaker_navigation_graph) }
+            navController.setCurrentDestination(R.id.homeFragment)
+            Navigation.setViewNavController(requireView(), navController)
+
+            val destination = navController.currentDestination
+            assertNotNull(destination)
+            assertEquals(destination!!.id, R.id.homeFragment)
+        }
 
         onView(withId(R.id.home_fragment_recycler_view)).check(matches(isDisplayed()))
         onView(withRecyclerView(R.id.home_fragment_recycler_view).atPosition(0))
