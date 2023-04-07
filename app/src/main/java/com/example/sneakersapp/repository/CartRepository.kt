@@ -6,21 +6,21 @@ import com.example.sneakersapp.dao.CartDataBase
 import com.example.sneakersapp.dao.SneakerTable
 import javax.inject.Inject
 
-class CartRepository @Inject constructor(private val dao: CartDataAccessObject) {
+class CartRepository @Inject constructor(private val dao: CartDataAccessObject) : CartRepositoryInterface{
 
-     fun removeItemFromCart(sneakerTable: SneakerTable) {
+     override fun removeItemFromCart(sneakerTable: SneakerTable) {
         return dao.delete(sneakerTable)
     }
 
-    fun getAllItem(): LiveData<List<SneakerTable>> {
+    override fun getAllItem(): LiveData<List<SneakerTable>> {
         return dao.getAllItem()
     }
 
-     fun getTotalCardPrice(): Int {
+     override fun getTotalCardPrice(): Int {
         return dao.totalPriceOfCartItem()
     }
 
-    suspend fun deleteAllItemsFromCart() {
+    override suspend fun deleteAllItemsFromCart() {
         return dao.deleteAllItemFromCart()
     }
 }

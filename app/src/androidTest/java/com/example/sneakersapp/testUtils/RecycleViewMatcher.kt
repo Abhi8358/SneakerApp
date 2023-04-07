@@ -1,4 +1,4 @@
-package com.example.sneakersapp
+package com.example.sneakersapp.testUtils
 import android.content.res.Resources
 import android.content.res.Resources.NotFoundException
 import android.view.View

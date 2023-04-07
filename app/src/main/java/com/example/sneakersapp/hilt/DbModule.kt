@@ -3,8 +3,6 @@ package com.example.sneakersapp.hilt
 import android.content.Context
 import androidx.room.Room
 import com.example.sneakersapp.dao.CartDataBase
-import com.example.sneakersapp.repository.HomeRepository
-import com.example.sneakersapp.repository.HomeRepositoryInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,7 +25,4 @@ object DbModule {
     @Provides
     @Singleton
     fun provideDao(db: CartDataBase) = db.getCartDao()
-
-    @Provides
-    fun objectForHomeRepositoryInterface(@ApplicationContext context: Context) = HomeRepository(context) as HomeRepositoryInterface
 }

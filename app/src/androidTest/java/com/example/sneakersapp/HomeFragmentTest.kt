@@ -13,11 +13,13 @@ import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.LayoutAssertions.noEllipsizedText
 import androidx.test.espresso.assertion.LayoutAssertions.noOverlaps
 import com.example.sneakersapp.mock.SneakerDetailMock.TYPE_WORD
+import com.example.sneakersapp.testUtils.RecyclerViewMatcher
 import com.example.sneakersapp.ui.fragments.HomeFragment
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import junit.framework.TestCase
 import junit.framework.TestCase.assertEquals
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
@@ -25,7 +27,6 @@ import org.junit.Test
 
 @HiltAndroidTest
 class HomeFragmentTest {
-
 
     @get:Rule
     val hiltRule = HiltAndroidRule(this)
@@ -35,6 +36,7 @@ class HomeFragmentTest {
         hiltRule.inject()
     }
 
+    @ExperimentalCoroutinesApi
     @Test
     fun verifySneakerDetailScreen() {
 
@@ -64,12 +66,13 @@ class HomeFragmentTest {
             .check(matches(withText(TYPE_WORD)))
     }
 
+    @ExperimentalCoroutinesApi
     @Test
     fun verifyRecyclerViewActions() {
         launchFragmentInHiltContainer<HomeFragment>( null, R.style.Theme_App) {
+           // homeViewModel = this@HomeFragmentTest.homeViewModel
             TestCase.assertNotNull(requireActivity())
             val navController = TestNavHostController(requireActivity())
-
             requireActivity().runOnUiThread { navController.setGraph(R.navigation.sneaker_navigation_graph) }
             navController.setCurrentDestination(R.id.homeFragment)
             Navigation.setViewNavController(requireView(), navController)

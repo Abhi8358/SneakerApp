@@ -1,18 +1,17 @@
-package com.example.sneakersapp.repository
+package com.example.sneakersapp.repo
 
-import androidx.lifecycle.MutableLiveData
-import com.example.sneakersapp.data.LocalJsonParsing
+import android.util.Log
 import com.example.sneakersapp.mock.SneakersMock
 import com.example.sneakersapp.model.SneakerViewData
-import com.example.sneakersapp.model.Sneakers
+import com.example.sneakersapp.repository.HomeRepositoryInterface
 
-class FakeHomeRepository : HomeRepositoryInterface{
+class FakeHomeRepository : HomeRepositoryInterface {
 
     override fun getTopSneakers(): SneakerViewData {
         return SneakerViewData("ok", SneakersMock.getMockListOfSneakers())
     }
 
     override fun getSearchedItem(input: String): SneakerViewData {
-        TODO("Not yet implemented")
+        return SneakerViewData("ok", SneakersMock.getMockListOfSneakers())
     }
 }

@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CartViewModel @Inject constructor(val cartRepository: CartRepository) : ViewModel() {
+class CartViewModel @Inject constructor(private val cartRepository: CartRepository) : ViewModel() {
 
     fun removeItemFromCart(sneakerTable: SneakerTable) {
         cartRepository.removeItemFromCart(sneakerTable)

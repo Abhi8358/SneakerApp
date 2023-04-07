@@ -9,9 +9,11 @@ import androidx.test.espresso.assertion.PositionAssertions.isCompletelyBelow
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.example.sneakersapp.hilt.launchFragmentInHiltContainer
+import com.example.sneakersapp.testUtils.RecyclerViewMatcher
 import com.example.sneakersapp.ui.fragments.CartFragment
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -31,6 +33,7 @@ class CartFragmentTest {
     }
 
     @Test
+    @ExperimentalCoroutinesApi
     fun verifyCartFragment() {
 
         launchFragmentInHiltContainer<CartFragment>( null, R.style.Theme_SneakersApp)
@@ -58,6 +61,7 @@ class CartFragmentTest {
 
     }
 
+    @ExperimentalCoroutinesApi
     @Test
     fun verifyAndTestCheckoutContainer() {
 

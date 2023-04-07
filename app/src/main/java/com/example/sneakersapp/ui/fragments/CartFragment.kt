@@ -22,14 +22,13 @@ import javax.inject.Inject
 class CartFragment : Fragment() {
 
     lateinit var binding: CartFragmentBinding
-    @Inject
-    lateinit var cartAdapter: CartAdapter
+    @Inject lateinit var cartAdapter: CartAdapter
     val cartViewModel by viewModels<CartViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.cart_fragment, container, false)
         return binding.root
     }
@@ -75,7 +74,7 @@ class CartFragment : Fragment() {
         }
     }
 
-    fun setCrossButtonClick() {
+    private fun setCrossButtonClick() {
         cartAdapter.setOnClickListener(object : CartAdapter.OnClickListener {
             override fun onClick(sneaker: SneakerTable) {
                 cartViewModel.removeItemFromCart(sneaker)
@@ -87,8 +86,7 @@ class CartFragment : Fragment() {
     fun orderDetails() {
         var totalPrice = 0
         var taxAndCharges = 0
-        var subTotal = 0
-        subTotal = cartViewModel.getTotalCardPrice()
+        val subTotal = cartViewModel.getTotalCardPrice()
         if (subTotal != 0) {
             taxAndCharges = cartViewModel.calTaxesAndCharges(subTotal)
             totalPrice = taxAndCharges + subTotal
@@ -98,7 +96,7 @@ class CartFragment : Fragment() {
         binding.totalPrices = totalPrice
     }
 
-    fun manageEmptyScreen() {
+    private fun manageEmptyScreen() {
 
         binding.cartContainer.visibility = View.GONE
         binding.emptyItemContainer.visibility = View.VISIBLE

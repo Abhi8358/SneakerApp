@@ -1,6 +1,7 @@
 package com.example.sneakersapp.repository
 
 import android.content.Context
+import android.util.Log
 import com.example.sneakersapp.data.LocalJsonParsing
 import com.example.sneakersapp.model.SneakerViewData
 import javax.inject.Inject
@@ -9,6 +10,7 @@ class HomeRepository @Inject constructor(val context: Context) : HomeRepositoryI
 
     override fun getTopSneakers(): SneakerViewData {
         //return SneakerViewData("ok", LocalJsonParsing.listOfSneakers)
+        Log.d("AAAAAAAA", "original repository")
         return SneakerViewData("ok", LocalJsonParsing.getListOfSneakers(context))
     }
 
