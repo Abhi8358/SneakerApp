@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sneakersapp.dao.SneakerTable
-import com.example.sneakersapp.repository.CartRepository
+import com.example.sneakersapp.repository.CartRepositoryInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CartViewModel @Inject constructor(private val cartRepository: CartRepository) : ViewModel() {
+class CartViewModel @Inject constructor(private val cartRepository: CartRepositoryInterface) : ViewModel() {
 
     fun removeItemFromCart(sneakerTable: SneakerTable) {
         cartRepository.removeItemFromCart(sneakerTable)

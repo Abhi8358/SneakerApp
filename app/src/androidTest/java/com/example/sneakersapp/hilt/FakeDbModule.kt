@@ -1,6 +1,8 @@
 package com.example.sneakersapp.hilt
 
+import com.example.sneakersapp.repo.FakeCartRepository
 import com.example.sneakersapp.repo.FakeHomeRepository
+import com.example.sneakersapp.repository.CartRepositoryInterface
 import com.example.sneakersapp.repository.HomeRepositoryInterface
 import dagger.Module
 import dagger.Provides
@@ -17,4 +19,8 @@ class FakeDbModule {
     @Provides
     fun objectForHomeRepositoryInterface() =
         FakeHomeRepository() as HomeRepositoryInterface
+
+    @Provides
+    fun objectForCartRepositoryInterface() =
+        FakeCartRepository() as CartRepositoryInterface
 }

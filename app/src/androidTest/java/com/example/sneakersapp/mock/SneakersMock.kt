@@ -1,6 +1,7 @@
 package com.example.sneakersapp.mock
 
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
+import com.example.sneakersapp.dao.SneakerTable
 import com.example.sneakersapp.model.Sneakers
 
 const val ITEMS_IN_LIST = 5
@@ -11,6 +12,7 @@ class SneakersMock {
         private val listOfSneakers = ArrayList<Sneakers>()
         private val MOCK_CONTENT: String = LoremIpsum(20).values.toString()
         private const val PRICE_OF_SNEAKER = 1234
+        val sneakerTableList = ArrayList<SneakerTable>()
         private const val IMAGE_URL = "https://image.goat.com/750/attachments/product_template_pictures/images/011/119/994/original/218099_00.png.png"
 
         fun getMockListOfSneakers(): ArrayList<Sneakers> {
@@ -34,6 +36,13 @@ class SneakersMock {
                 listOfSneakers.add(sneakers)
             }
             return listOfSneakers
+        }
+
+        fun getMockListOfSneakerTable() {
+            for (i:Int in 0..ITEMS_IN_LIST) {
+                val sneakerTable = SneakerTable(i, MOCK_CONTENT, PRICE_OF_SNEAKER, IMAGE_URL,1,7)
+                sneakerTableList.add(sneakerTable)
+            }
         }
     }
 }
