@@ -7,6 +7,7 @@
 [flow_screen_recording](https://drive.google.com/file/d/1ZpQBASaoGQE7H43Bsfer41AEdr2hu1sC/view?usp=share_link) <br>
 [Detail_page_video](https://drive.google.com/file/d/1cJ6DjpEVfwL1mCZmz2_8WTp2ou0sH2Bg/view?usp=share_link) <br>
 [Home_screen_searching](https://drive.google.com/file/d/1PjzXNTgs0USk8tAvDP6XV5qAYZKnB1np/view?usp=share_link) <br>
+[Empty_cart_screen](https://drive.google.com/file/d/1Rihrixq_V4HgiobsKWJpGyPpDirBH-Ht/view?usp=share_link) <br>
 
 ### ScreenShots <br>
 
