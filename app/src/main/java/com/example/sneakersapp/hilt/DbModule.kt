@@ -25,4 +25,5 @@ object DbModule {
     @Provides
     @Singleton
     fun provideDao(db: CartDataBase) = db.getCartDao()
+    
 }
